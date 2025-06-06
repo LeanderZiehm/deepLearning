@@ -462,7 +462,7 @@ if __name__ == "__main__":
     )
     sentence_lengths = torch.randint(1, max_sentence_length + 1, (batch_size,))
 
-    print("\nTesting forward pass...")
+    print("\nTesting forward pass")
     with torch.no_grad():
         logits, word_att, sentence_att = model(
             documents, word_lengths, sentence_lengths

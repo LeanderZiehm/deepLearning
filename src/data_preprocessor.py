@@ -44,7 +44,7 @@ class TextPreprocessor:
 
     def build_vocabulary(self, texts):
         """Build vocabulary from training texts."""
-        print("Building vocabulary...")
+        print("Building vocabulary")
         word_counts = Counter()
 
         for text in tqdm(texts, desc="Processing texts"):
@@ -141,7 +141,7 @@ class FakeNewsDataset(Dataset):
 
         # Convert texts to hierarchical format
         self.hierarchical_docs = []
-        for text in tqdm(texts, desc="Convertng text to hierarchical format..."):
+        for text in tqdm(texts, desc="Convertng text to hierarchical format"):
             doc = preprocessor.text_to_hierarchical_indices(
                 text, max_sentences, max_words_per_sentence
             )

@@ -98,9 +98,9 @@ class ModelTrainer:
 
             # 5) Print epoch metrics
             print(f"\nEpoch {epoch+1}/{number_of_epochs}:")
-            print(f"  Train Loss: {avg_trainset_loss:.4f}, Train Acc: {avg_trainset_acc:.4f}")
-            print(f"  Val   Loss: {validationset_loss:.4f}, Val   Acc: {validationset_accuracy:.4f}")
-            print(f"  Learning Rate: {scheduler.get_last_lr()[0]:.6f}")
+            print(f"Train Loss: {avg_trainset_loss:.4f}, Train Accuracy: {avg_trainset_acc:.4f}")
+            print(f"Validation Loss: {validationset_loss:.4f}, Validation   Accuracy: {validationset_accuracy:.4f}")
+            print(f"Learning Rate: {scheduler.get_last_lr()[0]:.6f}")
 
             # 6) Check for improvement
             if validationset_accuracy > highest_validation_accuracy:
@@ -119,10 +119,10 @@ class ModelTrainer:
                         "label_encoder": self.label_encoder,  # ensure this exists on self
                     }
                     torch.save(checkpoint, save_path)
-                    print(f"New best model saved Val Acc: {validationset_accuracy:.4f}")
+                    print(f"New best model saved Validation Accuracy: {validationset_accuracy:.4f}")
             else:
                 patience_counter += 1
-                print(f"  No improvement. Patience: {patience_counter}/{patience}")
+                print(f"No improvement. Patience: {patience_counter}/{patience}")
 
             # 7) Early stopping
             if patience_counter >= patience:
@@ -148,7 +148,7 @@ class ModelTrainer:
 
     def evaluate(self, test_loader):
         """Evaluate model on test set."""
-        print("Evaluating on test set...")
+        print("Evaluating on test set")
         testset_loss, testset_accuracy = self.trainer.evaluate(test_loader)
         print(
             f"Testset Loss: {testset_loss:.4f}, Testset Accuracy: {testset_accuracy:.4f}"

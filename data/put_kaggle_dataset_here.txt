@@ -1,0 +1,4 @@
+put kaggle dataset here :)
+
+we used: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset
+so put Fake.csv and True.csv here

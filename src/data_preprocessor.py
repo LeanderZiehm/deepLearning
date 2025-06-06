@@ -3,7 +3,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 import nltk
-from nltk.tokenize import sentence_tokenize, word_tokenize
+from nltk.tokenize import sent_tokenize, word_tokenize
 from collections import Counter
 import re
 import pickle
@@ -49,7 +49,7 @@ class TextPreprocessor:
 
         for text in tqdm(texts, desc="Processing texts"):
             cleaned_text = self.clean_text(text)
-            sentences = sentence_tokenize(cleaned_text)
+            sentences = sent_tokenize(cleaned_text)
 
             for sentence in sentences:
                 words = word_tokenize(sentence)
@@ -85,7 +85,7 @@ class TextPreprocessor:
     ):
         """Convert text to hierarchical structure of word indices."""
         cleaned_text = self.clean_text(text)
-        sentences = sentence_tokenize(cleaned_text)
+        sentences = sent_tokenize(cleaned_text)
 
         # Limit number of sentences
         sentences = sentences[:max_sentences]
